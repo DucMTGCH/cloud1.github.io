@@ -1,0 +1,90 @@
+<style>
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+}
+
+.container {
+    width: 40%;
+    margin: 50px auto;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    text-align: center;
+    color: #333;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-top: 15px;
+    font-weight: bold;
+    color: #555;
+}
+
+input,
+textarea {
+    margin-bottom: 20px;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+input[type="submit"] {
+    background-color: #4caf50;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+input[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+
+</style>
+
+<form action="/lego/add" method="post">
+   <h1>Add new legos</h1>
+   Legos model: <input type="text" name="model" id="" required>
+   <br><br>
+   Legos image: <input type="url" name="image" id="" required>
+   <br><br>
+   legos color:
+   <input type="radio" name="color" value="Black"> Black
+   <input type="radio" name="color" value="White"> White
+   <input type="radio" name="color" value="Yellow"> Yellow
+   <input type="radio" name="color" value="Blue"> Blue
+   <br><br>
+   legos material:
+   <input type="radio" name="material" value="ceramic"> ceramic
+   <input type="radio" name="material" value="wood"> wood
+   <input type="radio" name="material" value="glass"> glass
+   <input type="radio" name="material" value="plastic"> plastic
+   <br><br>
+   legos brand: <br>
+   <select name="brand">
+      {{#each brands }}
+      <option value="{{ _id }}"> {{ name }}</option>
+      {{/each}}
+   </select>
+   <br><br>
+   
+    legos brand: <br>
+   <select name="country">
+      {{#each brands }}
+      <option value="{{ _id }}"> {{ country }}</option>
+      {{/each}}     
+   </select>
+   <br><br>
+   <input type="submit" value="Add">
+</form>
